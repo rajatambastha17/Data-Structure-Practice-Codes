@@ -5,33 +5,32 @@ import java.util.Scanner;
 public class StackImplementation {
     int top;
     int arr[] = new int[100];
-    public static void main(String args[]) {
-        
-        StackImplementation stack = new StackImplementation();
-        System.out.println(stack.isEmpty());
-        int i = 1;
-        Scanner sc = new Scanner(System.in);
-        while(i != -1) {
-            System.out.print("Enter a value to push: ");
-            int element = sc.nextInt();
-            stack.push(element);
-            i = sc.nextInt();
-        }
-
-        stack.displayStack();
-        stack.pop();
-        stack.push(53);
-        stack.pop();
-        stack.pop();
-        stack.pop();
-        stack.pop();
-        stack.pop();
-        stack.push(38);
-        stack.push(72);
-        stack.displayStack();
-        
-        sc.close();
-    }
+//    public static void main(String args[]) {
+//        
+//        StackImplementation stack = new StackImplementation();
+//        System.out.println(stack.isEmpty());
+//        int i = 1;
+//        Scanner sc = new Scanner(System.in);
+//        while(i != -1) {
+//            System.out.print("Enter a value to push: ");
+//            int element = sc.nextInt();
+//            stack.push(element);
+//            i = sc.nextInt();
+//        }
+//
+//        stack.displayStack();
+//        stack.pop();
+//        stack.push(53);
+//        stack.pop();
+//        stack.pop();
+//        stack.pop();
+//        stack.pop();
+//        stack.pop();
+//        stack.displayStack();
+//        System.out.println("Top most element: "+stack.peek());
+//        System.out.println("Size of stack: "+stack.size());
+//        sc.close();
+//    }
 
     public StackImplementation() {
         this.top = -1;
@@ -80,7 +79,11 @@ public class StackImplementation {
         System.out.println();
     }
     
-    public int stackSize() {
+    public int size() {
     	return top+1;
+    }
+    
+    public int peek() {
+        return arr[top];
     }
 }
