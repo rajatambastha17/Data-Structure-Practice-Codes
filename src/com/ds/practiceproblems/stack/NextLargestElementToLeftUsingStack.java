@@ -1,14 +1,13 @@
-package com.ds.practiceproblems;
+package com.ds.practiceproblems.stack;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class NextSmallestElementToLeftUsingStack {
-
+public class NextLargestElementToLeftUsingStack {
 	public static void main(String[] args) {
 		
-		NextSmallestElementToLeftUsingStack nextSmallest = new NextSmallestElementToLeftUsingStack();
+		NextLargestElementToLeftUsingStack nextLargest = new NextLargestElementToLeftUsingStack();
 		Scanner s = new Scanner(System.in);
         System.out.println("Enter the size of array: ");
         int n = s.nextInt();
@@ -17,27 +16,26 @@ public class NextSmallestElementToLeftUsingStack {
         for(int i = 0; i < n; i++) {
             arr[i] = s.nextInt();
         }
-        List<Integer> output = nextSmallest.nextSmallestToLeft(arr);
+        List<Integer> output = nextLargest.nextLargestElementToLeft(arr);
         System.out.println(output);
         s.close();
-
 	}
 	
-	public List<Integer> nextSmallestToLeft(int arr[]) {
-		
+	public List<Integer> nextLargestElementToLeft(int arr[]) {
 		List<Integer> outputList = new ArrayList<Integer>();
 		StackImplementation stack = new StackImplementation();
 		
-		for(int i=0; i<arr.length; i++) {
+		for(int i=0; i < arr.length; i++) {
 			if(stack.isEmpty()) {
 				outputList.add(-1);
 			}
-			else if(!stack.isEmpty() && stack.peek() < arr[i]) {
+			
+			else if(!stack.isEmpty() && stack.peek() > arr[i]) {
 				outputList.add(stack.peek());
 			}
 			
-			else if(!stack.isEmpty() && stack.peek() >= arr[i]) {
-				while(!stack.isEmpty() && stack.peek() >= arr[i]) {
+			else if(!stack.isEmpty() && stack.peek() <= arr[i]) {
+				while(!stack.isEmpty() && stack.peek() <= arr[i]) {
 					stack.pop();
 				}
 				if(stack.isEmpty()) {
@@ -52,5 +50,4 @@ public class NextSmallestElementToLeftUsingStack {
 		
 		return outputList;
 	}
-
 }

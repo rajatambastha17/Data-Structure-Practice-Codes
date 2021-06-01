@@ -1,4 +1,4 @@
-package com.ds.practiceproblems;
+package com.ds.practiceproblems.stack;
 
 import java.util.List;
 import java.util.Scanner;
